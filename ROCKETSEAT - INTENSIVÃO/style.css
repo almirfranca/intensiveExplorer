@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bb-gradLinear: linear-gradient(96deg, #343193 0%, #302C63 100%);
+  --bg-header: #F9F4FB;
+  --bg-white: #FFFFFF;
+  --color-Hs: #B52184;
+  --color-Ps: #312D64;
+}
+
+body {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  /*font-weight: 600 900*/
+  min-width: 32.0rem;
+
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+}
+
+h1, h2, legend {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 900;
+}
+
+p, label, input, textarea, button {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-header);
+}
+
+.astronaut img {
+  max-width: 32rem;
+}
+
+.title-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.7rem;
+  margin-bottom: 9.2rem;
+}
+
+.title-page h1 {
+  font-size: clamp(3.2rem, 2vw + 1.0rem, 5rem);
+  color: var(--color-Hs);
+}
+
+.title-page p {
+  font-size: clamp(2.0rem, 1vw + 0.4rem, 3rem);
+  font-weight: 600;
+  color: var(--color-Ps);
+  margin-bottom: 3.5rem;
+}
+
+#main {
+  background: var(--bb-gradLinear);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
+  padding: 5.2rem 3.8rem;
+}
+
+figure {
+  background-color: var(--bg-white);
+  max-width: 35rem;
+  max-height: 36rem;
+  border-radius: 2.0rem;
+  padding: 2.6rem 2.6rem;
+}
+
+h2 {
+  font-size: clamp(2.8rem, 2vw + 1.0rem, 3rem);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-Hs);
+}
+
+p {
+  font-size: clamp(1.4rem, 1vw + 0.4rem, 1.6rem);
+  margin-bottom: 1rem;
+  color: var(--color-Ps);
+}
+
+#my-form {
+  background-color: var(--bg-header);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+fieldset {
+  border: none;
+}
+
+.fieldset-wrapper {
+  min-width: 36rem;
+  min-height: 42rem;
+}
+
+.fieldset-wrapper legend {
+  font-size: clamp(3rem, 2vw + 1.0rem, 4.2rem);
+  margin-top: 7.2rem;
+  margin-bottom: 4.2rem;
+  color: var(--color-Hs);
+}
+
+.fieldset-wrapper label {
+  font-size: clamp(1.4rem, 1vw + 0.4rem, 1.6rem);
+  color: var(--color-Ps);
+}
+
+.fieldset-wrapper input {
+  background-color: var(--bg-header);
+  font-size: clamp(1.4rem, 1vw + 0.4rem, 1.6rem);
+  width: 34.8rem;
+  height: 4.8rem;
+  border-radius: 1.6rem;
+  border: 1px solid #312D64;
+  margin-bottom: 2.4rem;
+  padding: 2rem 4rem;
+  opacity: 0.76;
+}
+
+#name {
+  background-image: url(./assets/user.svg);
+  background-repeat: no-repeat;
+  background-position: 1rem;  
+}
+
+
+#email {
+  background-image: url(./assets/email.svg);
+  background-repeat: no-repeat;
+  background-position: 1rem;  
+}
+
+.fieldset-wrapper textarea {
+  background-color: var(--bg-header);
+  width: 34.8rem;
+  height: 12.6rem;
+  border-radius: 1.6rem;
+  border: 1px solid #312D64;
+  padding: 2rem 1.4rem;
+  opacity: 0.76;
+}
+
+button {
+  font-size: 1.4rem;
+  background: var(--bb-gradLinear);
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+  cursor: pointer;
+
+  animation: move .5s;
+  --startY: 100%
+}
+
+button:hover {
+  transform: scale(1.04);
+}
+
+footer {
+  background: var(--bb-gradLinear);
+  text-align: center;
+  padding: 3.2rem 0;
+}
+
+footer p {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+
+/* ANIMATION IMG */
+.astronaut img {
+  animation: move .5s;
+  --startY: -100%;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+/**/
+
+/* ANIMATION DA FIGURE */
+figure {
+  --delay: .2s;
+  animation: appear .4s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7)
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* */
+@media (min-width: 1280px) {
+  header {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+
+  .astronaut img {
+    min-width: 72rem;
+    margin-bottom: 10rem;
+    margin-right: -5rem;
+  }
+  
+  .title-page {
+    align-items: flex-start;
+  }
+  
+  .title-page #arrow {
+   margin-top: 25rem;
+  }
+
+  #main {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  figure {
+    min-height: 40rem;
+  }
+
+  #my-form {
+    background-image: url(./assets/stars.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 6rem;
+  }
+
+  input, textarea {
+    min-width: 56rem;
+  }
+
+}
